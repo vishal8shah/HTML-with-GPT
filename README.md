@@ -34,6 +34,7 @@ for LLM-assisted work.
   `.html` file with inline CSS and inline JavaScript.
 - `assets/social-preview.html` - editable source for the social preview image.
 - `assets/social-preview.png` - Open Graph/Twitter preview image used by metadata.
+- `LICENSE` - MIT license for this static site and sample code.
 
 There are no runtime external CSS or JavaScript dependencies for the landing page
 or demos. The `assets/` folder remains only for the social preview files.
@@ -104,3 +105,7 @@ After GitHub Pages is enabled, the expected path is:
 ```text
 vishal8shah.github.io/HTML-and-LLMs/
 ```
+
+## License
+
+MIT license. No trackers, no analytics, and no external runtime requests.

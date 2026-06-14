@@ -1009,32 +1009,65 @@ kbd {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 34px 0 52px;
+  padding: 42px 0 58px;
+  background:
+    linear-gradient(180deg, transparent, color-mix(in oklch, var(--bg-2), transparent 12%)),
+    var(--bg);
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, .7fr) minmax(240px, .7fr);
-  gap: 34px;
+.footer-signature {
+  color: var(--muted);
+  font-size: clamp(18px, 2.6vw, 30px);
+  letter-spacing: 0;
+}
+
+.signature-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 18px clamp(24px, 5vw, 54px);
+  margin-bottom: 22px;
+}
+
+.signature-name {
+  color: var(--ink);
+  font: 800 clamp(23px, 3.2vw, 38px)/1.05 var(--sans);
+}
+
+.signature-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px clamp(24px, 4vw, 44px);
+}
+
+.signature-links a,
+.signature-credit a {
+  color: var(--ink);
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklch, var(--muted), transparent 35%);
+  text-underline-offset: 7px;
+}
+
+.signature-links a:hover,
+.signature-credit a:hover {
+  color: var(--accent-strong);
+  text-decoration-color: var(--accent);
+}
+
+.signature-meta {
+  margin: 0;
+  max-width: 980px;
+  color: var(--muted);
+  font-size: clamp(18px, 2.35vw, 30px);
+  line-height: 1.45;
+}
+
+.signature-credit {
+  margin: 26px 0 0;
+  max-width: 960px;
   color: var(--muted);
   font-size: 14px;
-}
-
-.footer-grid h2 {
-  margin: 0 0 10px;
-  color: var(--ink);
-  font: 700 16px/1.2 var(--mono);
-}
-
-.footer-grid a {
-  color: var(--ink);
-  text-decoration-color: var(--accent);
-  text-underline-offset: 4px;
-}
-
-.footer-brand {
-  display: flex;
-  gap: 16px;
+  line-height: 1.6;
 }
 
 .presenter {
@@ -1114,8 +1147,9 @@ kbd {
   .section-head,
   .guided-path,
   .presentation-strip,
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .signature-row,
+  .signature-links {
+    gap: 14px 24px;
   }
 
   .hero {
@@ -1535,23 +1569,18 @@ kbd {
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <div class="footer-brand">
-        <span class="brand-mark">VS</span>
-        <div>
-          <h2>Vishal Shah</h2>
-          <p>Enterprise AI Platform Architect. Operator. Builder.</p>
-        </div>
+  <footer class="site-footer" id="signature">
+    <div class="shell footer-signature">
+      <div class="signature-row" aria-label="Vishal Shah public links">
+        <strong class="signature-name">Vishal Shah</strong>
+        <nav class="signature-links" aria-label="Footer links">
+          <a href="https://www.linkedin.com/in/vishal8shah">LinkedIn</a>
+          <a href="https://github.com/vishal8shah">GitHub</a>
+          <a href="https://vishalshah.app">vishalshah.app</a>
+        </nav>
       </div>
-      <div>
-        <h2>This site</h2>
-        <p><a href="#samples">Samples</a><br><a href="#business">Business lens</a><br><a href="#engineering">Engineering lens</a><br><a href="#evidence">Evidence</a><br><a href="#boundaries">Boundaries</a></p>
-      </div>
-      <div>
-        <h2>References</h2>
-        <p><a href="https://html.spec.whatwg.org/multipage/">HTML Living Standard</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/File_API">MDN File API</a><br><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a><br><a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">OWASP CSP Cheat Sheet</a></p>
-      </div>
+      <p class="signature-meta">MIT licence · no trackers, no analytics, no external runtime requests · June 2026</p>
+      <p class="signature-credit">Inspired by <a href="https://thariqs.github.io/html-effectiveness/">Thariq Shihipar's original HTML effectiveness examples</a>. Original enterprise scenarios, copy, sample data, and design by Vishal Shah with GPT assistance. Fictional data only.</p>
     </div>
   </footer>
 

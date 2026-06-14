@@ -1109,15 +1109,58 @@ td strong {
 
 .footer-note {
   border-top: 1px solid var(--line);
-  padding: 28px 0 44px;
+  padding: 36px 0 50px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: clamp(17px, 2.2vw, 28px);
 }
 
-.footer-note a {
+.footer-signature {
+  display: grid;
+  gap: 20px;
+}
+
+.signature-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px clamp(24px, 4vw, 46px);
+}
+
+.signature-name {
   color: var(--ink);
+  font: 800 clamp(22px, 3vw, 34px)/1.05 var(--sans);
+}
+
+.signature-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px clamp(22px, 3.6vw, 38px);
+}
+
+.signature-meta {
+  margin: 0;
+  max-width: 920px;
+  line-height: 1.45;
+}
+
+.signature-credit {
+  margin: 0;
+  max-width: 920px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-note a,
+.signature-credit a {
+  color: var(--ink);
+  text-decoration-color: color-mix(in oklch, var(--muted), transparent 35%);
+  text-underline-offset: 7px;
+}
+
+.footer-note a:hover,
+.signature-credit a:hover {
+  color: var(--accent-strong);
   text-decoration-color: var(--accent);
-  text-underline-offset: 4px;
 }
 
 @media (max-width: 1180px) {
@@ -1781,8 +1824,19 @@ function renderShell() {
         </article>
       </section>
     </main>
-    <footer class="sample-shell footer-note">
-      Inspired by <a href="https://thariqs.github.io/html-effectiveness/">Thariq Shihipar's original HTML effectiveness examples</a>. Original enterprise scenarios and implementation by Vishal Shah. Fictional data only.
+    <footer class="sample-shell footer-note" id="signature">
+      <div class="footer-signature">
+        <div class="signature-row" aria-label="Vishal Shah public links">
+          <strong class="signature-name">Vishal Shah</strong>
+          <nav class="signature-links" aria-label="Footer links">
+            <a href="https://www.linkedin.com/in/vishal8shah">LinkedIn</a>
+            <a href="https://github.com/vishal8shah">GitHub</a>
+            <a href="https://vishalshah.app">vishalshah.app</a>
+          </nav>
+        </div>
+        <p class="signature-meta">MIT licence · no trackers, no analytics, no external runtime requests · June 2026</p>
+        <p class="signature-credit">Inspired by <a href="https://thariqs.github.io/html-effectiveness/">Thariq Shihipar's original HTML effectiveness examples</a>. Original enterprise scenarios, copy, sample data, and implementation by Vishal Shah with GPT assistance. Fictional data only.</p>
+      </div>
     </footer>
   `;
   setupTheme();
